@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<!--
+© 2026 WebHubCode
+https://webhubcode.com
+License: MIT
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance | WebHubCode</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --accent: #f59e0b;
+            --dark: #111827;
+            --light: #f8fafc;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .spin-slow {
+            animation: spin 20s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.5s ease;
+            transform-origin: 50% 50%;
+        }
+        
+        .glow {
+            filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.7));
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.2s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .typing {
+            overflow: hidden;
+            border-right: 2px solid var(--primary);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(99, 102, 241, 0.2);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-900/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/3 w-48 h-48 bg-amber-900/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 container mx-auto px-6 py-12 min-h-screen flex flex-col justify-center items-center">
+        <!-- Header -->
+        <header class="w-full max-w-6xl mb-12 fade-in" style="animation-delay: 0.2s">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center glow">
+                        <i class="fas fa-cogs text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold">NexaTech</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <span class="text-indigo-300 text-sm font-medium px-3 py-1 bg-indigo-900/30 rounded-full">
+                        <i class="fas fa-wrench mr-2"></i>Maintenance Mode
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="w-full max-w-6xl">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <!-- Left Content -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="mb-6">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-amber-500/20 text-amber-300 text-sm font-medium mb-6">
+                            <i class="fas fa-tools mr-2"></i>System Update in Progress
+                        </span>
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight slide-in">
+                            We're <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Upgrading</span> Your Experience
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-10 slide-in" style="animation-delay: 0.3s">
+                            Our platform is undergoing scheduled maintenance to bring you enhanced features and improved performance. We appreciate your patience.
+                        </p>
+                    </div>
+
+                    <!-- Status Indicators -->
+                    <div class="space-y-6 mb-10">
+                        <div class="slide-in" style="animation-delay: 0.4s">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">System Initialization</span>
+                                <span class="font-bold text-green-400">100%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full shimmer" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-in" style="animation-delay: 0.5s">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Database Migration</span>
+                                <span class="font-bold text-blue-400" id="db-progress">72%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full shimmer" id="db-bar" style="width: 72%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-in" style="animation-delay: 0.6s">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Security Updates</span>
+                                <span class="font-bold text-purple-400" id="security-progress">45%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-400 rounded-full shimmer" id="security-bar" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 mb-10 slide-in" style="animation-delay: 0.7s">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-clock text-indigo-400 mr-3"></i>
+                            Estimated Completion Time
+                        </h3>
+                        <div class="flex justify-between max-w-md">
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-white" id="hours">02</div>
+                                <div class="text-gray-400 text-sm mt-1">Hours</div>
+                            </div>
+                            <div class="text-4xl font-bold text-gray-600 pt-2">:</div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-white" id="minutes">45</div>
+                                <div class="text-gray-400 text-sm mt-1">Minutes</div>
+                            </div>
+                            <div class="text-4xl font-bold text-gray-600 pt-2">:</div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-white" id="seconds">30</div>
+                                <div class="text-gray-400 text-sm mt-1">Seconds</div>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <div class="flex justify-between text-sm text-gray-400 mb-1">
+                                <span>Start: 10:00 AM EST</span>
+                                <span>End: ~1:30 PM EST</span>
+                            </div>
+                            <div class="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" id="time-progress" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Form -->
+                    <div class="slide-in" style="animation-delay: 0.8s">
+                        <p class="text-gray-300 mb-4">We'll notify you when we're back online</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" placeholder="Enter your email address" class="flex-grow bg-gray-900/70 border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <button class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium px-6 py-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                                <i class="fas fa-bell mr-2"></i>Notify Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Animated Graphic -->
+                <div class="lg:w-1/2 flex justify-center relative">
+                    <div class="relative w-full max-w-lg">
+                        <!-- Main Circle -->
+                        <div class="relative mx-auto float-animation">
+                            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-gray-800 flex items-center justify-center">
+                                <div class="w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-indigo-500/30 flex items-center justify-center">
+                                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-indigo-900/40 to-purple-900/40 border-4 border-indigo-600/50 flex items-center justify-center relative overflow-hidden">
+                                        <!-- Rotating gears -->
+                                        <div class="absolute top-10 left-10">
+                                            <i class="fas fa-cog text-indigo-400 text-4xl spin-slow"></i>
+                                        </div>
+                                        <div class="absolute bottom-10 right-10">
+                                            <i class="fas fa-cog text-purple-400 text-3xl spin-slow" style="animation-direction: reverse;"></i>
+                                        </div>
+                                        <div class="absolute top-10 right-10">
+                                            <i class="fas fa-cog text-cyan-400 text-2xl spin-slow" style="animation-duration: 15s;"></i>
+                                        </div>
+                                        <div class="absolute bottom-10 left-10">
+                                            <i class="fas fa-cog text-amber-400 text-3xl spin-slow" style="animation-duration: 25s; animation-direction: reverse;"></i>
+                                        </div>
+                                        
+                                        <!-- Center Icon -->
+                                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center glow">
+                                            <i class="fas fa-tools text-white text-5xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-6 left-4 md:left-10 w-20 h-20 bg-amber-500/20 rounded-2xl flex items-center justify-center bounce" style="animation-delay: 0.3s">
+                            <i class="fas fa-bolt text-amber-400 text-2xl"></i>
+                        </div>
+                        
+                        <div class="absolute -bottom-6 right-4 md:right-10 w-20 h-20 bg-green-500/20 rounded-2xl flex items-center justify-center bounce" style="animation-delay: 0.6s">
+                            <i class="fas fa-server text-green-400 text-2xl"></i>
+                        </div>
+                        
+                        <div class="absolute top-1/3 -left-6 md:-left-10 w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center bounce" style="animation-delay: 0.9s">
+                            <i class="fas fa-database text-blue-400 text-xl"></i>
+                        </div>
+                        
+                        <div class="absolute top-1/3 -right-6 md:-right-10 w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center bounce" style="animation-delay: 1.2s">
+                            <i class="fas fa-shield-alt text-purple-400 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Status Updates -->
+        <section class="w-full max-w-6xl mt-20">
+            <div class="bg-gray-900/40 backdrop-blur-sm border border-gray-800 rounded-2xl p-6">
+                <h3 class="text-xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-history text-indigo-400 mr-3"></i>
+                    Live Status Updates
+                </h3>
+                
+                <div class="space-y-5">
+                    <div class="flex items-start pb-5 border-b border-gray-800">
+                        <div class="mr-4 mt-1">
+                            <div class="w-3 h-3 rounded-full bg-green-500 pulse-animation"></div>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <span class="font-medium">System diagnostics completed successfully</span>
+                                <span class="text-gray-500 text-sm">Just now</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mt-1">All systems are functioning within expected parameters.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start pb-5 border-b border-gray-800">
+                        <div class="mr-4 mt-1">
+                            <div class="w-3 h-3 rounded-full bg-blue-500 pulse-animation"></div>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <span class="font-medium">Database optimization in progress</span>
+                                <span class="text-gray-500 text-sm">15 min ago</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mt-1">Migrating user data to new optimized structure.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="mr-4 mt-1">
+                            <div class="w-3 h-3 rounded-full bg-amber-500 pulse-animation"></div>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <span class="font-medium">Security patches being applied</span>
+                                <span class="text-gray-500 text-sm">45 min ago</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mt-1">Implementing latest security protocols and encryption standards.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-gray-800">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-sync-alt mr-2 text-indigo-400"></i>
+                            <span>Updates refresh automatically every 60 seconds</span>
+                        </div>
+                        <button class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center">
+                            <i class="fas fa-redo-alt mr-2"></i>
+                            Refresh Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info -->
+        <footer class="w-full max-w-6xl mt-12 pt-8 border-t border-gray-800">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <p class="text-gray-400">Need immediate assistance?</p>
+                    <p class="text-lg font-medium mt-1">
+                        <i class="fas fa-envelope text-indigo-400 mr-2"></i>
+                        contact@webhubcode.com
+                    </p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="w-12 h-12 bg-gray-900/60 hover:bg-gray-800 rounded-xl flex items-center justify-center transition-colors">
+                        <i class="fab fa-twitter text-gray-300 hover:text-white"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-gray-900/60 hover:bg-gray-800 rounded-xl flex items-center justify-center transition-colors">
+                        <i class="fab fa-discord text-gray-300 hover:text-white"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-gray-900/60 hover:bg-gray-800 rounded-xl flex items-center justify-center transition-colors">
+                        <i class="fas fa-headset text-gray-300 hover:text-white"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2023 NexaTech Inc. All systems are undergoing scheduled maintenance.</p>
+                <p class="mt-1">We appreciate your patience as we work to improve our services.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create animated particles
+            createParticles();
+            
+            // Initialize countdown timer
+            initCountdown();
+            
+            // Initialize progress animations
+            initProgressAnimations();
+            
+            // Initialize status updates
+            initStatusUpdates();
+            
+            // Add event listeners
+            document.querySelector('button').addEventListener('click', function() {
+                const email = document.querySelector('input[type="email"]').value;
+                if (email && validateEmail(email)) {
+                    showNotification('success', 'You will be notified when we\'re back online!');
+                    document.querySelector('input[type="email"]').value = '';
+                } else {
+                    showNotification('error', 'Please enter a valid email address');
+                }
+            });
+            
+            // Refresh button
+            document.querySelectorAll('button').forEach(btn => {
+                if (btn.textContent.includes('Refresh Now')) {
+                    btn.addEventListener('click', function() {
+                        simulateProgressUpdate();
+                        showNotification('info', 'Status updates refreshed');
+                    });
+                }
+            });
+        });
+        
+        // Create floating particles
+        function createParticles() {
+            const container = document.querySelector('body');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size and position
+                const size = Math.random() * 60 + 10;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s ease-in-out infinite`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Initialize countdown timer
+        function initCountdown() {
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+            const secondsElement = document.getElementById('seconds');
+            const timeProgress = document.getElementById('time-progress');
+            
+            // Set initial time (2 hours, 45 minutes, 30 seconds)
+            let hours = 2;
+            let minutes = 45;
+            let seconds = 30;
+            let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+            let elapsedSeconds = 0;
+            
+            // Update countdown every second
+            const countdownInterval = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        if (hours === 0) {
+                            clearInterval(countdownInterval);
+                            showCompletion();
+                            return;
+                        } else {
+                            hours--;
+                            minutes = 59;
+                        }
+                    } else {
+                        minutes--;
+                    }
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                
+                elapsedSeconds++;
+                
+                // Update display
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+                
+                // Update progress bar
+                const progressPercent = (elapsedSeconds / totalSeconds) * 100;
+                timeProgress.style.width = `${Math.min(progressPercent, 100)}%`;
+                
+                // Change color as time runs low
+                if (hours === 0 && minutes < 30) {
+                    timeProgress.classList.remove('bg-gradient-to-r', 'from-indigo-500', 'to-purple-500');
+                    timeProgress.classList.add('bg-gradient-to-r', 'from-amber-500', 'to-orange-500');
+                }
+                
+                if (hours === 0 && minutes < 10) {
+                    timeProgress.classList.remove('bg-gradient-to-r', 'from-amber-500', 'to-orange-500');
+                    timeProgress.classList.add('bg-gradient-to-r', 'from-red-500', 'to-pink-500');
+                }
+            }, 1000);
+        }
+        
+        // Initialize progress animations
+        function initProgressAnimations() {
+            const dbProgress = document.getElementById('db-progress');
+            const dbBar = document.getElementById('db-bar');
+            const securityProgress = document.getElementById('security-progress');
+            const securityBar = document.getElementById('security-bar');
+            
+            // Simulate progress updates
+            let dbPercent = 72;
+            let securityPercent = 45;
+            
+            const progressInterval = setInterval(() => {
+                // Increment database progress
+                if (dbPercent < 100) {
+                    dbPercent += Math.random() * 3;
+                    if (dbPercent > 100) dbPercent = 100;
+                    
+                    dbProgress.textContent = `${Math.floor(dbPercent)}%`;
+                    dbBar.style.width = `${dbPercent}%`;
+                }
+                
+                // Increment security progress
+                if (securityPercent < 100) {
+                    securityPercent += Math.random() * 2;
+                    if (securityPercent > 100) securityPercent = 100;
+                    
+                    securityProgress.textContent = `${Math.floor(securityPercent)}%`;
+                    securityBar.style.width = `${securityPercent}%`;
+                }
+                
+                // Check if both are complete
+                if (dbPercent >= 100 && securityPercent >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, 3000);
+        }
+        
+        // Initialize status updates
+        function initStatusUpdates() {
+            const updates = [
+                {
+                    time: '2 min ago',
+                    title: 'User interface updates applied',
+                    description: 'New UI components and theme updates successfully deployed.',
+                    status: 'completed'
+                },
+                {
+                    time: '25 min ago',
+                    title: 'Performance optimizations started',
+                    description: 'Implementing caching mechanisms and code optimizations.',
+                    status: 'in-progress'
+                },
+                {
+                    time: '1 hour ago',
+                    title: 'Maintenance window started',
+                    description: 'Scheduled maintenance has begun. All systems are being updated.',
+                    status: 'completed'
+                }
+            ];
+            
+            // Add initial updates
+            setTimeout(() => {
+                addStatusUpdate(updates[0]);
+            }, 5000);
+            
+            setTimeout(() => {
+                addStatusUpdate(updates[1]);
+            }, 15000);
+            
+            setTimeout(() => {
+                addStatusUpdate(updates[2]);
+            }, 25000);
+        }
+        
+        // Add a status update to the list
+        function addStatusUpdate(update) {
+            const updatesContainer = document.querySelector('.space-y-5');
+            const statusColors = {
+                'completed': 'green',
+                'in-progress': 'blue',
+                'pending': 'amber'
+            };
+            
+            const updateElement = document.createElement('div');
+            updateElement.className = 'flex items-start pb-5 border-b border-gray-800';
+            updateElement.innerHTML = `
+                <div class="mr-4 mt-1">
+                    <div class="w-3 h-3 rounded-full bg-${statusColors[update.status]}-500 pulse-animation"></div>
+                </div>
+                <div class="flex-grow">
+                    <div class="flex justify-between items-start">
+                        <span class="font-medium">${update.title}</span>
+                        <span class="text-gray-500 text-sm">${update.time}</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-1">${update.description}</p>
+                </div>
+            `;
+            
+            updatesContainer.prepend(updateElement);
+            
+            // Add animation
+            updateElement.style.opacity = '0';
+            updateElement.style.transform = 'translateY(-10px)';
+            
+            setTimeout(() => {
+                updateElement.style.transition = 'opacity 0.5s, transform 0.5s';
+                updateElement.style.opacity = '1';
+                updateElement.style.transform = 'translateY(0)';
+            }, 10);
+        }
+        
+        // Simulate progress update
+        function simulateProgressUpdate() {
+            const dbProgress = document.getElementById('db-progress');
+            const dbBar = document.getElementById('db-bar');
+            const securityProgress = document.getElementById('security-progress');
+            const securityBar = document.getElementById('security-bar');
+            
+            // Get current values
+            let dbPercent = parseInt(dbProgress.textContent);
+            let securityPercent = parseInt(securityProgress.textContent);
+            
+            // Increment slightly
+            if (dbPercent < 100) {
+                dbPercent += 2;
+                if (dbPercent > 100) dbPercent = 100;
+                
+                dbProgress.textContent = `${dbPercent}%`;
+                dbBar.style.width = `${dbPercent}%`;
+            }
+            
+            if (securityPercent < 100) {
+                securityPercent += 1;
+                if (securityPercent > 100) securityPercent = 100;
+                
+                securityProgress.textContent = `${securityPercent}%`;
+                securityBar.style.width = `${securityPercent}%`;
+            }
+        }
+        
+        // Show completion message
+        function showCompletion() {
+            const mainTitle = document.querySelector('h1');
+            mainTitle.innerHTML = 'Maintenance <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Complete!</span>';
+            
+            showNotification('success', 'Maintenance completed successfully! The system will be live shortly.');
+            
+            // Update status indicator
+            const statusIndicator = document.querySelector('.bg-amber-500\\/20');
+            statusIndicator.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Maintenance Complete';
+            statusIndicator.classList.remove('bg-amber-500/20', 'text-amber-300');
+            statusIndicator.classList.add('bg-green-500/20', 'text-green-300');
+            
+            // Update all progress bars to 100%
+            document.querySelectorAll('.h-2 .rounded-full').forEach(bar => {
+                bar.style.width = '100%';
+            });
+            
+            document.getElementById('db-progress').textContent = '100%';
+            document.getElementById('security-progress').textContent = '100%';
+        }
+        
+        // Show notification
+        function showNotification(type, message) {
+            // Remove any existing notification
+            const existingNotification = document.querySelector('.notification-toast');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification
+            const notification = document.createElement('div');
+            notification.className = `notification-toast fixed top-6 right-6 z-50 px-6 py-4 rounded-xl shadow-lg transform transition-all duration-300`;
+            
+            const bgColors = {
+                'success': 'bg-gradient-to-r from-green-600 to-emerald-600',
+                'error': 'bg-gradient-to-r from-red-600 to-pink-600',
+                'info': 'bg-gradient-to-r from-blue-600 to-cyan-600'
+            };
+            
+            notification.classList.add(...bgColors[type].split(' '));
+            
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'} mr-3 text-white text-xl"></i>
+                    <span class="text-white font-medium">${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 5000);
+        }
+        
+        // Email validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
